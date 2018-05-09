@@ -4,7 +4,9 @@
   "version": "1.0.0",
   "author": "zhangmin <zhangmin@channelsoft.com>",
   "license": "MIT",
-  "private": true,
+  "private": false,
+  "main": "dist/pagination.js",
+  "repository": { "type": "git", "url": "https://github.com/zhangmin521/vue_pagination" },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"

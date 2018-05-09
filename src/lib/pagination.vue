@@ -104,10 +104,7 @@
       }
     },
     computed:{
-      changeData(){
-        const {currentPage, perSize} = this;
-        return {currentPage, perSize}
-      }
+
     },
     watch:{
       'params.currentPage':function (newV, oldV) {
