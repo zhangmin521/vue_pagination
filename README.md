@@ -26,7 +26,7 @@ Vue.use(pagination);
 
 <template>
 	<div id="app">
-		<vuePagination :params="params" @changePage="changePage"></vuePagination>
+		<vue-pagenavs :params="params" @changePage="changePage"></vue-pagenavs>
 	</div>
 </template>
 

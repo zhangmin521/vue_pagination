@@ -14,6 +14,7 @@ module.exports = {
 //   publicPath: './demo/',
 //   filename: 'build.js'
 // },
+
   entry: './src/main.js', //run dev
   output: {
     path: path.resolve(__dirname, './demo'),
