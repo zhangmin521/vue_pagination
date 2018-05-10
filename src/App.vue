@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <vue-pagenavs :params="params" @changePage="changePage"></vue-pagenavs>
+    <pagination :params="params" @changePage="changePage"></pagination>
   </div>
 </template>
 

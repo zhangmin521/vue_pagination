@@ -14,7 +14,7 @@
 </template>
 <script>
   export default {
-    name:'vue-pagenavs',
+    name:'pagination',
     props:['params'],
     data(){
       return {
