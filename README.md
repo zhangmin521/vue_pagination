@@ -12,7 +12,7 @@
 # npm
 
 ```html
-$ npm install pagination
+$ npm install vue-pagenavs
 ```
 
 
