@@ -12,7 +12,7 @@
 # npm
 
 ```html
-$ npm install vue-pagenavs
+$ npm install vue-pagenavs --save
 ```
 
 
@@ -21,7 +21,7 @@ $ npm install vue-pagenavs
 - [Vue.js](https://github.com/vuejs/vue) `^2.5.11`
 
 ```html
-import pagination from 'pagination'
+import pagination from 'vue-pagenavs'
 Vue.use(pagination);
 
 <template>

@@ -127,6 +127,9 @@
   .pageWrap{
     display: inline-block;
     vertical-align: bottom;
+    list-style-type: none;
+    padding: 0;
+    margin:0;
   }
   .perPage{
     float: left;
