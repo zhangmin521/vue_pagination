@@ -14,7 +14,7 @@
 </template>
 <script>
   export default {
-    name:'pagination',
+    name:'vuePagination',
     props:['params'],
     data(){
       return {
