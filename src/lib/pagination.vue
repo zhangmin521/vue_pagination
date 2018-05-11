@@ -94,7 +94,7 @@
       },
       changeCur(){
         var tempPage = this.jumpPage.replace(/[^0-9]/g,'');
-        if(tempPage){
+        if(tempPage && tempPage>0){
           this.params.currentPage = tempPage;
         }else{
           this.jumpPage = this.params.currentPage;
