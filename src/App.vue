@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <pagination :params="params" @changePage="changePage"></pagination>
+    <pagination :params="params" :config="config" @changePage="changePage"></pagination>
   </div>
 </template>
 
@@ -13,6 +13,10 @@ export default {
         currentPage:1,
         perSize:10,
         totalSize:107
+      },
+      config:{
+          show:true,
+          pageSizes : [10, 20, 30, 50, 100, 200]
       }
     }
   },

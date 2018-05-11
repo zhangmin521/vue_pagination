@@ -32,18 +32,24 @@ Vue.use(pagination);
 
 ```
 
-> 参数：当前页、每页条数和总共条数（用于计算总页数）
+> 页码参数：当前页、每页条数和总共条数（用于计算总页数）
 > Parameters: current page, number of pages per page and total number of pages (for calculating total number of pages)
+> 配置参数：是否显示每页条数的选择框、自定义选择框数组
+> Configuration parameters: whether to display the selection box for each page number and the custom selection box array
 > 传递函数 changePage
 
 ```html
 data () {
     return {
-      params:{
-        currentPage:1,
-        perSize:10,
-        totalSize:107
-      }
+        params:{
+            currentPage:1,
+            perSize:10,
+            totalSize:107
+        },
+        config:{
+            show:true,
+            pageSizes : [10, 20, 30, 50, 100, 200]
+        }
     }
 },
 methods:{

@@ -1,8 +1,8 @@
 <template>
   <div class="pagination">
     <span>共{{params.totalSize}}条</span>
-    <select name="pagesize" class="changeSize" id="" v-model="params.perSize" @change="changePerSize()">
-      <option v-for="item in pageSizes" :value="item">{{item}}条/每页</option>
+    <select v-if="config.show" name="pagesize" class="changeSize" id="" v-model="params.perSize" @change="changePerSize()">
+      <option v-for="item in config.pageSizes" :value="item">{{item}}条/每页</option>
     </select>
     <button class="preButton" @click="prePage" :disabled="params.currentPage==1" :class="params.currentPage==1?'notAllowed':''"><i><</i></button>
     <ul class="pageWrap">
@@ -15,10 +15,9 @@
 <script>
   export default {
     name:'pagination',
-    props:['params'],
+    props:['params', 'config'],
     data(){
       return {
-        pageSizes : [10, 20, 30, 50, 100, 200],
         pageList:[],
         jumpPage:this.params.currentPage
       }
