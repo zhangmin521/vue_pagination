@@ -1,15 +1,19 @@
 <template>
   <div class="pagination">
-    <span>共{{params.totalSize}}条</span>
+    <!--<span>共{{params.totalSize}}条</span>-->
     <select v-if="config.show" name="pagesize" class="changeSize" id="" v-model="params.perSize" @change="changePerSize()">
       <option v-for="item in config.pageSizes" :value="item">{{item}}条/每页</option>
     </select>
-    <button class="preButton" @click="prePage" :disabled="params.currentPage==1" :class="params.currentPage==1?'notAllowed':''"><i><</i></button>
+    <button class="preButton" @click="prePage" :disabled="params.currentPage==1" :class="params.currentPage==1?'notAllowed':''">
+      <img src="../img/pre.png" alt="">
+    </button>
     <ul class="pageWrap">
       <li @click="curPage(item)" class="perPage" :class="{activePage:item==params.currentPage}" v-for="item in pageList" track-by="$index">{{item}}</li>
     </ul>
-    <button class="nextButton" @click="nextPage" :disabled="params.currentPage==Math.ceil(params.totalSize/params.perSize)" :class="params.currentPage==Math.ceil(params.totalSize/params.perSize)?'notAllowed':''"><i>></i></button>
-    <span>前往 <input class="jumpInput" type="text" v-model="jumpPage" @change="changeCur" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')"> 页</span>
+    <button class="nextButton" @click="nextPage" :disabled="params.currentPage==Math.ceil(params.totalSize/params.perSize)" :class="params.currentPage==Math.ceil(params.totalSize/params.perSize)?'notAllowed':''">
+      <img src="../img/next.png" alt="">
+    </button>
+    <span class="jumpTip">跳至</span><input class="jumpInput" type="text" v-model="jumpPage" @change="changeCur" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')"><span class="jumpTip">页</span>
   </div>
 </template>
 <script>
@@ -121,7 +125,12 @@
 </script>
 <style scoped>
   .pagination{
-    color: #535353;
+    color: #4A4A4A;
+    font-size: 0;
+  }
+  .jumpTip{
+    font-size: 12px;
+    vertical-align: middle;
   }
   .pageWrap{
     display: inline-block;
@@ -130,45 +139,57 @@
     padding: 0;
     margin:0;
   }
+  .perPage, .changeSize, .jumpInput, .preButton, .nextButton{
+    height: 28px;
+    line-height:28px;
+    border: 1px solid #EDF2F8;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  .preButton, .nextButton{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+  }
+  .preButton img, .nextButton img{
+    width: 7px;
+  }
   .perPage{
     float: left;
     display: inline-block;
-    width: 20px;
+    width: 28px;
     text-align: center;
     font-size: 12px;
     cursor: pointer;
   }
-  .activePage{
-    background: skyblue;
-  }
-  button.notAllowed{
-    color: #c0c4cc;
-    background-color: #fff;
-    cursor: not-allowed;
-  }
-  .perPage, .changeSize, .jumpInput{
-    height: 20px;
-    line-height:20px;
-    border: 1px solid silver;
-    border-radius: 3px;
-    margin: 0 5px;
-    opacity: 0.5;
-  }
-  .preButton, .nextButton{
-    border:none;
-    background: transparent;
-    cursor: pointer;
-  }
   .nextButton{
-    margin-right: 5px;
-  }
-  .preButton:hover, .nextButton:hover{
-    color: blue;
+    margin-right: 14px;
   }
   .jumpInput{
     width: 31px;
     color: #606266;
     outline: none;
+    margin:0 14px;
     padding: 0 10px;
+  }
+  .perPage:hover, .preButton:hover, .nextButton:hover{
+    border:1px solid #ABD5D9;
+  }
+  .preButton:hover, .nextButton:hover{
+    color: #54D4E0;
+  }
+  .activePage{
+    background: #54D4E0;
+    color: #fff;
+    border:1px solid #54D4E0;
+  }
+  button.notAllowed{
+    color: #c0c4cc;
+    background-color: #fff;
+    cursor: not-allowed;
   }
 </style>
