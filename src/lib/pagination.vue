@@ -5,13 +5,13 @@
       <option v-for="item in config.pageSizes" :value="item">{{item}}条/每页</option>
     </select>
     <button class="preButton" @click="prePage" :disabled="params.currentPage==1" :class="params.currentPage==1?'notAllowed':''">
-      <img src="./../img/pre.png" alt="">
+      <img src="./pre.png" alt="">
     </button>
     <ul class="pageWrap">
       <li @click="curPage(item)" class="perPage" :class="{activePage:item==params.currentPage}" v-for="item in pageList" track-by="$index">{{item}}</li>
     </ul>
     <button class="nextButton" @click="nextPage" :disabled="params.currentPage==Math.ceil(params.totalSize/params.perSize)" :class="params.currentPage==Math.ceil(params.totalSize/params.perSize)?'notAllowed':''">
-      <img src="./../img/next.png" alt="">
+      <img src="./next.png" alt="">
     </button>
     <span class="jumpTip">跳至</span><input class="jumpInput" type="text" v-model="jumpPage" @change="changeCur" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')"><span class="jumpTip">页</span>
   </div>
