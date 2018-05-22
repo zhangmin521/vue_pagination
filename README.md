@@ -26,13 +26,13 @@ Vue.use(pagination);
 
 <template>
 	<div id="app">
-		<pagination :params="params" :config="config" @changePage="changePage"></pagination>
+		<pagination :params="params" @changePage="changePage"></pagination>
 	</div>
 </template>
 
 ```
 
-> 页码参数：当前页、每页条数和总共条数（用于计算总页数）
+> 页码参数：当前页、每页条数和总共条数（用于计算总页数）,默认不可更改每页条数，如果传递pageSizes则显示并可以更改
 > Parameters: current page, number of pages per page and total number of pages (for calculating total number of pages)
 > 配置参数：是否显示每页条数的选择框、自定义选择框数组
 > Configuration parameters: whether to display the selection box for each page number and the custom selection box array
@@ -44,10 +44,7 @@ data () {
         params:{
             currentPage:1,
             perSize:10,
-            totalSize:107
-        },
-        config:{
-            show:true,
+            totalSize:107,
             pageSizes : [10, 20, 30, 50, 100, 200]
         }
     }

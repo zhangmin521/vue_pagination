@@ -1,8 +1,8 @@
 <template>
   <div class="pagination">
     <!--<span>共{{params.totalSize}}条</span>-->
-    <select v-if="config.show" name="pagesize" class="changeSize" id="" v-model="params.perSize" @change="changePerSize()">
-      <option v-for="item in config.pageSizes" :value="item">{{item}}条/每页</option>
+    <select name="pagesize" v-if="params.pageSizes" class="changeSize" id="" v-model="params.perSize" @change="changePerSize()">
+      <option v-for="item in params.pageSizes" :value="item">{{item}}条/每页</option>
     </select>
     <button class="preButton" @click="prePage" :disabled="params.currentPage==1" :class="params.currentPage==1?'notAllowed':''">
       <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAaCAYAAACHD21cAAAAAXNSR0IArs4c6QAAAh5JREFUOBGVlM9LG1EQx91V0WatNaQ55Zh7sbRBRBF/0KrJJkVaeiiElh5yi0dPHoLgyaun4CEH8WAENbtrrRpsD4VCSg9e+z/0VKK0+eFn1F1W3STbB5O3+958Zr47816Urv8YqVTqaa1WKyqK8lP1yyUSiWf1er2MfxTTFD9gMpmMNRqNo2azOYT/92AwONsRjMfjIzh/xh5hXzVN04vF4p+2UnVdH8X56AY6BpoXiPeuliDyxpEmmQYxIxqNJoHOBZLhKRV5E1TOAhxg3olEIu/y+fy/a+T69x6IvEkKYbKtAW0GAoEPZKq7IXm+JRVohiyWQNhGLBZ77wUJ6GSkuS/o0z7gAzKtm6a5yNwUJ69xBfJNc2zuYv2qqq4BLXk5u9dUqveShT2ByLDiB5IAPcjbYO4DWrYsa1UW/Qwpjl2x4Vwu1+MHEh+VTB+xc4ryplKpbGcymV4/8FVx+M5pemcABwiyT+/e0oa/7QI47XA3HsDkXL5uBzsHgGp+Ids8JodYr1aru9lstq9VViej7cBBGKPSn5D9kCCH4XB4oVAoXNj79nwPlA25TnzzIY9yM+Q6vUK2czPExxOUDfcFJnOZgnW+VgLKQPZzZB8jewj4lOOoG4ZRlT2nOPJyd5RKpR84z7D+G3iKIAfpdFpuTmup7iDIHibjCXCI9W+hUKjzn5UdANlPyFgGfszaVlupNiQzss+Ypsj8i7n7EnS+0Qej7kcMAAAAAElFTkSuQmCC" alt="">
@@ -19,7 +19,7 @@
 <script>
   export default {
     name:'pagination',
-    props:['params', 'config'],
+    props:['params'],
     data(){
       return {
         pageList:[],
@@ -146,12 +146,13 @@
     border-radius: 3px;
     vertical-align: middle;
     margin-right: 5px;
+    background: #fff;
+    outline: none;
   }
   .preButton, .nextButton{
     width: 30px;
     height: 30px;
     line-height: 30px;
-    background: transparent;
     outline: none;
     cursor: pointer;
   }
