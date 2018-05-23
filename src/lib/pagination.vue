@@ -119,6 +119,11 @@
         this.$emit('changePage', this.params);
 //        console.log(newV, oldV);
         this.updatePage();
+      },
+      'params.totalSize':function (newV, oldV) {
+        this.$emit('changePage', this.params);
+//        console.log(newV, oldV);
+        this.updatePage();
       }
     }
   }
