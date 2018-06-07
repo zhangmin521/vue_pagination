@@ -13,7 +13,7 @@
     <button class="nextButton" @click="nextPage" :disabled="params.currentPage==Math.ceil(params.totalSize/params.perSize)" :class="params.currentPage==Math.ceil(params.totalSize/params.perSize)?'notAllowed':''">
       <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAaCAYAAACHD21cAAAAAXNSR0IArs4c6QAAAiFJREFUOBGNlM9LG1EQx7O7qf2xRdO/IZB7LTmUFlq1tobdVYTmUDA0p5yaY68lvXr0KB48CTYUaXYN/qgiQlGh0NJrzjnFFG1NbKGb9DMhG6Ju1h0Y3uzO+7z5vvdmVzEM40O73R6NRqPpUqn0LRLSVObpeNx13R0WeRCSi6ixWOwVkw+peo/xs2VZyTCwIpPS6fTdRqPhED7BT/EX5XL5iHGgidRIsVg803U9RbiNj+Bbpmk+ZBxoHVCywOfxeNwitPFhpG8i+7Hk/KwjtT+Ry+VuVKvVFcCXiqKcMRrI3u+fI/EVUF6yZ63ZbC4DzfHYUFXVdBxnT3Ke9aR6L2REtptMJl8TLuE6C6yz5wnJeeZb0UsCKAALjG+Qfa5p2gxNIgfoL9UDvRF4vtVqveX5Dz7LnjcCK3qgjHTVeyq/I/xL5WmtPxkUVyqVvUQi8Y85z1ngqe/h+C1QKBSiAPe7OTeU1O7drgLOyiEBG9eC3OkQdyqf3gxQkzu1bNveDQQFovk/UsHELzTCwD3m8/mbVFoTSFoPT/V3j2/FbDZ7q1arrSFvCuA3x5/i4r+wSM+ugMi7jbxPzJjEf7GnKSod9IhucAEUCHk2laQvAz/oHsi3d4e2coDGkHeCvEnkfb1cyXvuHE4mk9H5WZUFIvETeRNBkMCKQPV6fZP4EZXqwM9o4u+SDDIVaJEJAh0jbzwMJAuKVA2owjiGvB/yMoz9BwJM8ZrOIl5tAAAAAElFTkSuQmCC" alt="">
     </button>
-    <span class="jumpTip">跳至</span><input id='input1' class="jumpInput" type="text" v-model="jumpPage" @input="inputCur" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')"><span class="jumpTip">页</span>
+    <span class="jumpTip">跳至</span><input id='input1' class="jumpInput" type="text" v-model="jumpPage" @input="inputCur()"><span class="jumpTip">页</span>
   </div>
 </template>
 <script>
